@@ -17,7 +17,7 @@ if (getenv("MODE") !== 'PRODUCTION') {
     error_reporting(E_ALL);
 }
 
-$conn = mysqli_connect("localhost", "u200746388_baseprueba", getenv("PASSWORD"), "u200746388_baseprueba");
+$conn = mysqli_connect("localhost", getenv("DB_USER"), getenv("DB_PASSWORD"), getenv("DB_NAME"));
 if ($conn->connect_errno) {
     echo "Failed to connect to MySQL: " . $conn->connect_error;
     exit();
@@ -110,7 +110,7 @@ $countDone = $conn->query("SELECT count(*) as total FROM todos where done=1")->f
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Aplicación de todo</a>
         </div>
